@@ -8,29 +8,31 @@
     <h2 class="text-center mb-5">Administra tus Productos</h2>
     <div class="col-md-10 mx-auto bg-white p-J">
         <table class="table">
-            <thead class="thead-dark">
+            <thead class="thead-dark text-center">
                 <tr>
-                <th scope="col">Titulo</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Talla</th>
+                <th scope="col">Precio</th>
                 <th scope="col">Categoria</th>
-                <th scope="col">Acciones</th>
+                <th scope="col">Marca</th>
+                <th scope="col">Opciones</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                <th scope="row">Pizza Ecuatoriana</th>
-                <td>Pizza</td>
-                <td>Comer</td>
-                </tr>
-                <tr>
-                <th scope="row">Sancocho de cerdo</th>
-                <td>Sopas</td>
-                <td>Comer</td>
-                </tr>
-                <tr>
-                <th scope="row">Shawuarma</th>
-                <td>Comida rapida</td>
-                <td>Comer</td>
-                </tr>
+            <tbody class="text-center">
+                @foreach($shoe as $shoes)
+                    <tr>
+                        <th scope="row">{{ $shoes->name_shoes}}</th>
+                        <td>{{$shoes->size_shoes}}</td>
+                        <td>$ {{$shoes->price_shoes}}</td>
+                        <td>{{$shoes->name_category}}</td>
+                        <td>{{$shoes->name_brand}}</td>
+                        <td>
+                            <a class="far fa-trash-alt" href="" style="padding-right:20px;" data-toggle="tooltipe" data-placement="top" title="Borrar"></a>
+                            <a class="far fa-edit" href="" data-toggle="tooltipe" data-placement="top" title="Editar"></a>
+                        </td>
+
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

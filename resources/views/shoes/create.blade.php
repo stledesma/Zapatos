@@ -64,7 +64,7 @@
                     @enderror" id="category">
                     <option value="">---Seleccione---</option>
                          @foreach($category as $id => $categorys)
-                            <option value="{{$id}} ">{{$categorys}}</option>
+                            <option value="{{$id}} ">{{$id}}-{{$categorys}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -75,7 +75,7 @@
                     @enderror" id="brand">
                     <option value="">---Seleccione---</option>
                          @foreach($brand as $id => $brands)
-                            <option value="{{$id}} ">{{$brands}}</option>
+                            <option value="{{$id}} ">{{$id}}-{{$brands}}</option>
                         @endforeach
                     </select>
                 </div>

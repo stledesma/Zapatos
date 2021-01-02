@@ -81,8 +81,13 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Steven Ledesma
                 </div>
+
+                <div style="padding-bottom: 25px; padding-top: 15px">
+                    <a type="button" class="btn btn-primary" href={{ route('shoes.index') }} >Tienda de Zapatos</a>
+                </div>
+
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
