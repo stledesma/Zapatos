@@ -24,13 +24,13 @@
                         <th scope="row">{{ $shoes->name_shoes}}</th>
                         <td>{{$shoes->size_shoes}}</td>
                         <td>$ {{$shoes->price_shoes}}</td>
-                        <td>{{$shoes->name_category}}</td>
-                        <td>{{$shoes->name_brand}}</td>
+                        <td>{{$shoes->categoriaZapato->name_category}}</td>
+                        <td>{{$shoes->marcaZapato->name_brand}}</td>
                         <td>
-                            <a class="far fa-trash-alt" href="{{route('shoes.show',['zapato'=>$userZapato->id])}}" style="padding-right:20px;" data-toggle="tooltipe" data-placement="top" title="ver"></a>
-                            <a class="far fa-edit" href="{{route('shoes.edit',['zapato'=>$userZapato->id])}}" data-toggle="tooltipe" data-placement="top" title="Editar"></a>
+                            <a class="far fa-eye" href="{{route('shoes.show',['zapato'=>$shoes->id])}}" data-toggle="tooltipe" data-placement="top" title="Ver" ></a>
+                            <a class="far fa-edit" href="{{route('shoes.edit',['zapato'=>$shoes->id])}}" data-toggle="tooltipe" data-placement="top" title="Editar"></a>
+                            <a class="far fa-trash-alt" href="" style="padding-right:20px;" data-toggle="tooltipe" data-placement="top" title="Eliminar"></a>
                         </td>
-
                     </tr>
                 @endforeach
             </tbody>

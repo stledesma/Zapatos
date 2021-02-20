@@ -71,8 +71,8 @@ class ZapatoController extends Controller
         ]);
 
         $rutaImagen = $request['image']->store('upload-zapatos','public');
-        $imgResize = Image::make(public_path("storage/{$rutaImagen}"))->fit(1000,500);
-        $imgResize->save();
+        /*$imgResize = Image::make(public_path("storage/{$rutaImagen}"))->fit(1000,500);
+        $imgResize->save();*/
 
         /*DB::table('zapatos')->insert([
             'name_shoes' => $data['name'],
@@ -83,13 +83,15 @@ class ZapatoController extends Controller
             'brand_id' => $data['brand'],
         ]);*/
 
-        Auth::user()-> zapatos()->create([
+
+
+        Auth::user()->userZapato()->create([
             'name_shoes' => $data['name'],
             'size_shoes' => $data['size'],
             'price_shoes' => $data['price'],
             'image' => $rutaImagen,
-            'category_id' => $data['category'],
-            'brand_id' => $data['brand'],
+            'categoria_id' => $data['category'],
+            'marca_id' => $data['brand'],
         ]);
 
         return redirect()->action('ZapatoController@index');
@@ -116,7 +118,7 @@ class ZapatoController extends Controller
     {
         $categorias = Categoria::all(['id','name_category']);
         $marcas = Marca::all(['id','name_brand']);
-        return view('recetas.edit')->with('categorias',$categorias)
+        return view('shoes.edit')->with('categorias',$categorias)
                                    ->with('marcas',$marcas)
                                    ->with('zapato', $zapato);
     }

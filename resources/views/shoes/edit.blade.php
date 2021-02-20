@@ -13,7 +13,7 @@
                 @method('put')
                 <div class="form-group">
                     <label for="name">Nombre de Calzado</label>
-                    <input type="text" name="name" class="form-control @error('name')
+                    <input type="text" name="name" value="{{$zapato->name_shoes}}" class="form-control @error('name')
                         is-invalid
                     @enderror"
                     id="name" required="" value={{old('name')}}>
@@ -25,7 +25,7 @@
                 </div>
                 <div class="form-group">
                     <label for="size">Talla del calzado</label>
-                    <input type="text" name="size" class="form-control @error('size')
+                    <input type="text" value="{{$zapato->size_shoes}}" name="size" class="form-control @error('size')
                         is-invalid
                     @enderror"
                     id="size" required="" value={{old('size')}}>
@@ -37,7 +37,7 @@
                 </div>
                 <div class="form-group">
                     <label for="price">Precio</label>
-                    <input type="number" name="price" class="form-control @error('price')
+                    <input type="number" value="{{$zapato->price_shoes}}" name="price" class="form-control @error('price')
                         is-invalid
                     @enderror" id="price" required="" value={{old('price')}}>
                     @error('price')
@@ -49,6 +49,10 @@
                 <div class="form-group">
                         <label for="image">Imagen del calzado</label>
                         <input id=image type="file" class="form-control @error('preparacion') is-invalid @enderror" name="image" >
+                        <div class="mt-4">
+                            <p>Imagen Actual</p>
+                            <img src="/storage/{{$zapato->image}}" style="width:300px">
+                        </div>
                          @error('image')
                             <span class="invalid-feedback d-block" role="alert">
                                 <strong>{{$message}}</strong>
@@ -73,7 +77,7 @@
                     @enderror" id="brand">
                     <option value="">---Seleccione---</option>
                          @foreach($marcas as $marca)
-                            <option value="{{$marcas->$id}}" {{$zapato->marca_id==$marca->id ? 'selected':''}}>{{$marca->name_brand}}</option>
+                            <option value="{{$marca->id}}" {{$zapato->marca_id==$marca->id ? 'selected':''}}>{{$marca->name_brand}}</option>
                         @endforeach
                     </select>
                 </div>

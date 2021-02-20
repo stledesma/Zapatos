@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Zapato extends Model
 {
     protected $fillable = [
-        'name_shoes', 'size_shoes', 'price_shoes', 'image'
+        'name_shoes', 'size_shoes', 'price_shoes', 'image', 'categoria_id', 'marca_id'
     ];
 
     public function categoriaZapato(){
@@ -15,7 +15,7 @@ class Zapato extends Model
     }
 
     public function marcaZapato(){
-        return $this->belongsTo(Categoria::class,'marca_id');
+        return $this->belongsTo(Marca::class,'marca_id');
     }
 
     //obtener información del usuario via user_id

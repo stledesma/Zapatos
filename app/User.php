@@ -38,14 +38,9 @@ class User extends Authenticatable
     ];
 
     /* Relacion: uno a muchos - 1:n usuario->zapatos*/
-    /*public function userZapato(){
+    public function userZapato(){
         return $this->hasMany(Zapato::class);
     }
 
-    public function zapatosUsuario(){
-        return $this->hasMany(Zapato::class);
-    }*/
-    public function zapatos(){
 
-    }
 }
