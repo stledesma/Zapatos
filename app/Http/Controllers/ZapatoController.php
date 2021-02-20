@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Marca;
 use App\Zapato;
 use App\Categoria;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -82,7 +83,7 @@ class ZapatoController extends Controller
             'brand_id' => $data['brand'],
         ]);*/
 
-        Auth::user()->userZapato()->create([
+        Auth::user()-> zapatos()->create([
             'name_shoes' => $data['name'],
             'size_shoes' => $data['size'],
             'price_shoes' => $data['price'],
