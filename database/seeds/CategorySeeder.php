@@ -13,25 +13,25 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        DB::table('category')->insert([
+        DB::table('categorias')->insert([
             'name_category'=>'Deportivo',
             'created_at'=> date('Y-m-d H:i:s'),
             'updated_at'=> date('Y-m-d H:i:s')
         ]);
 
-        DB::table('category')->insert([
+        DB::table('categorias')->insert([
             'name_category'=>'Casual',
             'created_at'=> date('Y-m-d H:i:s'),
             'updated_at'=> date('Y-m-d H:i:s')
         ]);
 
-        DB::table('category')->insert([
+        DB::table('categorias')->insert([
             'name_category'=>'Semi-casual',
             'created_at'=> date('Y-m-d H:i:s'),
             'updated_at'=> date('Y-m-d H:i:s')
         ]);
 
-        DB::table('category')->insert([
+        DB::table('categorias')->insert([
             'name_category'=>'Supremos',
             'created_at'=> date('Y-m-d H:i:s'),
             'updated_at'=> date('Y-m-d H:i:s')

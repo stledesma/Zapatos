@@ -19,7 +19,7 @@
                 </tr>
             </thead>
             <tbody class="text-center">
-                @foreach($shoe as $shoes)
+                @foreach($userZapato as $shoes)
                     <tr>
                         <th scope="row">{{ $shoes->name_shoes}}</th>
                         <td>{{$shoes->size_shoes}}</td>
@@ -27,8 +27,8 @@
                         <td>{{$shoes->name_category}}</td>
                         <td>{{$shoes->name_brand}}</td>
                         <td>
-                            <a class="far fa-trash-alt" href="" style="padding-right:20px;" data-toggle="tooltipe" data-placement="top" title="Borrar"></a>
-                            <a class="far fa-edit" href="" data-toggle="tooltipe" data-placement="top" title="Editar"></a>
+                            <a class="far fa-trash-alt" href="{{route('shoes.show',['zapato'=>$userZapato->id])}}" style="padding-right:20px;" data-toggle="tooltipe" data-placement="top" title="ver"></a>
+                            <a class="far fa-edit" href="{{route('shoes.edit',['zapato'=>$userZapato->id])}}" data-toggle="tooltipe" data-placement="top" title="Editar"></a>
                         </td>
 
                     </tr>

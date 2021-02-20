@@ -13,7 +13,7 @@ class CreateZapatosTable extends Migration
      */
     public function up()
     {
-        Schema::create('category', function(Blueprint $table){
+        /*Schema::create('category', function(Blueprint $table){
             $table->id();
             $table->string('name_category');
             $table->timestamps();
@@ -23,22 +23,19 @@ class CreateZapatosTable extends Migration
             $table->id();
             $table->string('name_brand');
             $table->timestamps();
-        });
+        });*/
 
         Schema::create('zapatos', function (Blueprint $table) {
             $table->id();
             $table->string('name_shoes');
             $table->string('size_shoes');
             $table->double('price_shoes');
+            $table->string('image');
             $table->foreignId('user_id')->references('id')->on('users')->comment('El usuario que registra un nuevo zapato');
-            $table->foreignId('category_id')->references('id')->on('category')->comment('La categoria del zapato');
-            $table->foreignId('brand_id')->references('id')->on('brand')->comment('La marca que pertenece el zapato');
+            $table->foreignId('categoria_id')->references('id')->on('categorias')->comment('La categoria del zapato');
+            $table->foreignId('marca_id')->references('id')->on('marcas')->comment('La marca que pertenece el zapato');
             $table->timestamps();
         });
-
-
-
-
     }
 
     /**
@@ -48,8 +45,8 @@ class CreateZapatosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('category');
-        Schema::dropIfExists('brand');
+        //Schema::dropIfExists('category');
+        //Schema::dropIfExists('brand');
         Schema::dropIfExists('zapatos');
 
     }

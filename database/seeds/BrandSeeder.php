@@ -12,25 +12,25 @@ class BrandSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('brand')->insert([
+        DB::table('marcas')->insert([
             'name_brand'=>'Adiddas',
             'created_at'=> date('Y-m-d H:i:s'),
             'updated_at'=> date('Y-m-d H:i:s')
         ]);
 
-        DB::table('brand')->insert([
+        DB::table('marcas')->insert([
             'name_brand'=>'Nike',
             'created_at'=> date('Y-m-d H:i:s'),
             'updated_at'=> date('Y-m-d H:i:s')
         ]);
 
-        DB::table('brand')->insert([
+        DB::table('marcas')->insert([
             'name_brand'=>'Pumas',
             'created_at'=> date('Y-m-d H:i:s'),
             'updated_at'=> date('Y-m-d H:i:s')
         ]);
 
-        DB::table('brand')->insert([
+        DB::table('marcas')->insert([
             'name_brand'=>'Venus',
             'created_at'=> date('Y-m-d H:i:s'),
             'updated_at'=> date('Y-m-d H:i:s')

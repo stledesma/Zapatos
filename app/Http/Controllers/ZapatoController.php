@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Marca;
 use App\Zapato;
+use App\Categoria;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Symfony\Component\Console\Input\Input;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Facades\Image;
+use Symfony\Component\Console\Input\Input;
+
 
 class ZapatoController extends Controller
 {
@@ -22,13 +26,14 @@ class ZapatoController extends Controller
      */
     public function index()
     {
+        $userZapato = Auth::user()->userZapato;
         //$shoe = DB::table('zapatos')->select('zapatos.*')->get();
-        $shoe = DB::table('zapatos')->join('category', 'category.id', '=', 'category_id')
+        /*$shoe = DB::table('zapatos')->join('category', 'category.id', '=', 'category_id')
                                     ->join('brand', 'brand.id', '=', 'brand_id')
                                     ->select('name_shoes', 'size_shoes', 'price_shoes', 'name_category', 'name_brand')
-                                    ->get();
+                                    ->get();*/
         //dd($shoe);
-        return view('shoes.index')->with('shoe', $shoe);
+        return view('shoes.index')->with('userZapato', $userZapato);
     }
 
     /**
@@ -38,11 +43,12 @@ class ZapatoController extends Controller
      */
     public function create()
     {
-        $category = DB::table('category')->get()->pluck('name_category', 'id');
+        //$category = DB::table('category')->get()->pluck('name_category', 'id');
         //dd($category);
-        $brand = DB::table('brand')->get()->pluck('name_brand', 'id');
-        return view('shoes.create')->with('category', $category)
-                                   ->with('brand', $brand);
+        $categorias = Categoria::all(['id','name_category']);
+        $marcas = Marca::all(['id','name_brand']);
+        return view('shoes.create')->with('categorias', $categorias)
+                                   ->with('marcas', $marcas);
     }
 
     /**
@@ -53,21 +59,34 @@ class ZapatoController extends Controller
      */
     public function store(Request $request)
     {
-        $id_user = Auth::user()->id;
+        //$id_user = Auth::user()->id;
         $data = $request->validate([
             'name' => 'required|min:7',
             'size' => 'required|min:5',
             'price' => 'required',
             'category' => 'required',
             'brand' => 'required',
+            'image'=>'required|image'
         ]);
 
+        $rutaImagen = $request['image']->store('upload-zapatos','public');
+        $imgResize = Image::make(public_path("storage/{$rutaImagen}"))->fit(1000,500);
+        $imgResize->save();
 
-        DB::table('zapatos')->insert([
+        /*DB::table('zapatos')->insert([
             'name_shoes' => $data['name'],
             'size_shoes' => $data['size'],
             'price_shoes' => $data['price'],
             'user_id' => $id_user,
+            'category_id' => $data['category'],
+            'brand_id' => $data['brand'],
+        ]);*/
+
+        Auth::user()->userZapato()->create([
+            'name_shoes' => $data['name'],
+            'size_shoes' => $data['size'],
+            'price_shoes' => $data['price'],
+            'image' => $rutaImagen,
             'category_id' => $data['category'],
             'brand_id' => $data['brand'],
         ]);
@@ -83,7 +102,7 @@ class ZapatoController extends Controller
      */
     public function show(Zapato $zapato)
     {
-        //
+        return view('shoes.show')->with('zapatos', $zapato);
     }
 
     /**
@@ -94,7 +113,11 @@ class ZapatoController extends Controller
      */
     public function edit(Zapato $zapato)
     {
-        //
+        $categorias = Categoria::all(['id','name_category']);
+        $marcas = Marca::all(['id','name_brand']);
+        return view('recetas.edit')->with('categorias',$categorias)
+                                   ->with('marcas',$marcas)
+                                   ->with('zapato', $zapato);
     }
 
     /**
@@ -106,7 +129,22 @@ class ZapatoController extends Controller
      */
     public function update(Request $request, Zapato $zapato)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required|min:7',
+            'size' => 'required|min:5',
+            'price' => 'required',
+            'category' => 'required',
+            'brand' => 'required',
+        ]);
+
+         //Asignar valores
+         $zapato->name_shoes=$data['name'];
+         $zapato->size_shoes=$data['size'];
+         $zapato->price_shoes=$data['price'];
+         $zapato->categoria_id=$data['category'];
+         $zapato->marca_id=$data['brand'];
+         $zapato->save();
+         return redirect()->action('RecetaController@index');
     }
 
     /**

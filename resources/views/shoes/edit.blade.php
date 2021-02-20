@@ -5,11 +5,12 @@
 @endsection
 
 @section('content')
-    <h2 class="text-center mb-5">Registra tu nuevo Calzado</h2>
+    <h2 class="text-center mb-5"> Editar Calzado: {{$zapato->name_shoes}}</h2>
     <div class="row justify-content-center mt-2">
         <div class="col-md-8">
-            <form method="POST" action={{ route('shoes.store') }} enctype="multipart/form-data" novalidate>
+            <form method="POST" action="{{route('shoes.update', ['zapato'=>$zapato->id])}}" enctype="multipart/form-data" novalidate>
                 @csrf
+                @method('put')
                 <div class="form-group">
                     <label for="name">Nombre de Calzado</label>
                     <input type="text" name="name" class="form-control @error('name')
@@ -61,7 +62,7 @@
                     @enderror" id="category">
                     <option value="">---Seleccione---</option>
                          @foreach($categorias as $categoria)
-                            <option value="{{$categoria->id}}" {{old('category')==$categoria->id ? 'selected':''}}>{{$categoria->name_category}}</option>
+                            <option value="{{$categoria->id}}" {{$zapato->categoria_id==$categoria->id ? 'selected':''}}>{{$categoria->name_category}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -72,12 +73,12 @@
                     @enderror" id="brand">
                     <option value="">---Seleccione---</option>
                          @foreach($marcas as $marca)
-                            <option value="{{$marcas->$id}}" {{old('brand')==$marca->id ? 'selected':''}}>{{$marca->name_brand}}</option>
+                            <option value="{{$marcas->$id}}" {{$zapato->marca_id==$marca->id ? 'selected':''}}>{{$marca->name_brand}}</option>
                         @endforeach
                     </select>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <button type="submit" class="btn btn-primary">Editar Calzado</button>
                 </div>
 
             </form>
