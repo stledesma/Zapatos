@@ -31,8 +31,8 @@ class ZapatoController extends Controller
         /*$shoe = DB::table('zapatos')->join('category', 'category.id', '=', 'category_id')
                                     ->join('brand', 'brand.id', '=', 'brand_id')
                                     ->select('name_shoes', 'size_shoes', 'price_shoes', 'name_category', 'name_brand')
-                                    ->get();*/
-        //dd($shoe);
+                                    ->get();
+        //dd($shoe);*/
         return view('shoes.index')->with('userZapato', $userZapato);
     }
 

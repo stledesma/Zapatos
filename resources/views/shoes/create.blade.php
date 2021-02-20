@@ -72,7 +72,7 @@
                     @enderror" id="brand">
                     <option value="">---Seleccione---</option>
                          @foreach($marcas as $marca)
-                            <option value="{{$marcas->$id}}" {{old('brand')==$marca->id ? 'selected':''}}>{{$marca->name_brand}}</option>
+                            <option value="{{$marca->id}}" {{old('brand')==$marca->id ? 'selected':''}}>{{$marca->name_brand}}</option>
                         @endforeach
                     </select>
                 </div>
