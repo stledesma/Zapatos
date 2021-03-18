@@ -27,9 +27,9 @@
                         <td>{{$shoes->categoriaZapato->name_category}}</td>
                         <td>{{$shoes->marcaZapato->name_brand}}</td>
                         <td>
-                            <a class="far fa-eye" href="{{route('shoes.show',['zapato'=>$shoes->id])}}" data-toggle="tooltipe" data-placement="top" title="Ver" ></a>
-                            <a class="far fa-edit" href="{{route('shoes.edit',['zapato'=>$shoes->id])}}" data-toggle="tooltipe" data-placement="top" title="Editar"></a>
-                            <a class="far fa-trash-alt" href="" style="padding-right:20px;" data-toggle="tooltipe" data-placement="top" title="Eliminar"></a>
+                            <a href="{{route('shoes.show',['zapato'=>$shoes->id])}}" class="btn btn-success">Ver</a>
+                            <a href="{{route('shoes.edit',['zapato'=>$shoes->id])}}" class="btn btn-dark">Editar</a>
+                            <eliminar-zapato id-zapato={{$shoes->id}}></eliminar-zapato>
                         </td>
                     </tr>
                 @endforeach

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Zapato;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $zapato = Zapato::all();
+    return view('welcome')->with('zapato', $zapato);
 });
 
 Auth::routes();
@@ -27,3 +29,4 @@ Route::post('/shoes', 'ZapatoController@store')->name('shoes.store');
 Route::get('/shoes/{zapato}/edit','ZapatoController@edit')->name('shoes.edit');
 Route::put('/shoes/{zapato}', 'ZapatoController@update')->name('shoes.update');
 Route::get('/shoes/{zapato}', 'ZapatoController@show')->name('shoes.show');
+Route::delete('/shoes/{zapato}', 'ZapatoController@destroy')->name('shoes.destroy');

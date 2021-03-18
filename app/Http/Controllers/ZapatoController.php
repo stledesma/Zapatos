@@ -71,8 +71,8 @@ class ZapatoController extends Controller
         ]);
 
         $rutaImagen = $request['image']->store('upload-zapatos','public');
-        /*$imgResize = Image::make(public_path("storage/{$rutaImagen}"))->fit(1000,500);
-        $imgResize->save();*/
+        $imgResize = Image::make(public_path("storage/{$rutaImagen}"))->fit(1000,500);
+        $imgResize->save();
 
         /*DB::table('zapatos')->insert([
             'name_shoes' => $data['name'],
@@ -147,7 +147,7 @@ class ZapatoController extends Controller
          $zapato->categoria_id=$data['category'];
          $zapato->marca_id=$data['brand'];
          $zapato->save();
-         return redirect()->action('RecetaController@index');
+         return redirect()->action('ZapatoController@index');
     }
 
     /**
@@ -158,6 +158,10 @@ class ZapatoController extends Controller
      */
     public function destroy(Zapato $zapato)
     {
-        //
+        //funcion para validar usuario usando policy
+        //$this->authorize('delete', $zapato);
+         //metodo para eliminar
+         $zapato->delete();
+         return redirect()->action('ZapatoController@index');
     }
 }
