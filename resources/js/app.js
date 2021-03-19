@@ -28,6 +28,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('eliminar-zapato', require('./components/eliminarZapato.vue').default);
 Vue.component('boton-comprar', require('./components/botonComprar.vue').default);
 Vue.component('boton-unete', require('./components/botonUnete.vue').default);
+Vue.component('boton-comprar-zapato', require('./components/botonComprarZapato.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

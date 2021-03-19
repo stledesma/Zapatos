@@ -111,6 +111,9 @@
                             <div class="card-body">
                                 <p class="card-text">Calzado tipo {{$shoes->categoriaZapato->name_category}} disponibles en talla {{$shoes->size_shoes}}</p>
                                 <p class="card-text">$ {{$shoes->price_shoes}}</p>
+                                <boton-comprar-zapato id-zapato={{$shoes->marcaZapato->name_brand}}
+                                                      nombre-zapato={{$shoes->name_shoes}}
+                                                      precio-zapato={{$shoes->price_shoes}}  ></boton-comprar-zapato>
                             </div>
                         </div>
                     </div>

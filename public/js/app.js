@@ -2011,6 +2011,50 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/botonComprarZapato.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/botonComprarZapato.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['idZapato', 'nombreZapato', 'precioZapato'],
+  mounted: function mounted() {
+    console.log('id zapato', this.idZapato);
+    console.log('nombre zapato', this.nombreZapato);
+    console.log('precio zapato', this.precioZapato);
+  },
+  methods: {
+    botonComprarZapato: function botonComprarZapato() {
+      this.$swal.fire({
+        icon: 'success',
+        title: 'Producto añadido al carrito',
+        showClass: {
+          popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+          popup: 'animate__animated animate__fadeOutUp'
+        },
+        width: 600,
+        padding: '3em',
+        background: '#fff',
+        backdrop: "\n                rgba(0,0,123,0.4)\n                url(\"/images/gif-anime5.gif\")\n                left top\n                no-repeat\n            ",
+        text: 'El producto ' + this.idZapato + ' ' + this.nombreZapato + ' con valor de $ ' + this.precioZapato + ' ha sido añadido.',
+        footer: '<a href>Podrias ayudar a mejor la experiencia del sitio?</a>'
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/botonUnete.vue?vue&type=script&lang=js&":
 /*!*********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/botonUnete.vue?vue&type=script&lang=js& ***!
@@ -42064,6 +42108,34 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/botonComprarZapato.vue?vue&type=template&id=96ca0728&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/botonComprarZapato.vue?vue&type=template&id=96ca0728& ***!
+  \*********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("input", {
+    staticClass: "btn btn btn-secondary",
+    attrs: { type: "button", value: "Comprar" },
+    on: { click: _vm.botonComprarZapato }
+  })
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/botonUnete.vue?vue&type=template&id=3441df22&":
 /*!*************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/botonUnete.vue?vue&type=template&id=3441df22& ***!
@@ -54381,6 +54453,7 @@ vue__WEBPACK_IMPORTED_MODULE_2___default.a.component('example-component', __webp
 vue__WEBPACK_IMPORTED_MODULE_2___default.a.component('eliminar-zapato', __webpack_require__(/*! ./components/eliminarZapato.vue */ "./resources/js/components/eliminarZapato.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_2___default.a.component('boton-comprar', __webpack_require__(/*! ./components/botonComprar.vue */ "./resources/js/components/botonComprar.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_2___default.a.component('boton-unete', __webpack_require__(/*! ./components/botonUnete.vue */ "./resources/js/components/botonUnete.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_2___default.a.component('boton-comprar-zapato', __webpack_require__(/*! ./components/botonComprarZapato.vue */ "./resources/js/components/botonComprarZapato.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -54571,6 +54644,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_botonComprar_vue_vue_type_template_id_9f0bd28e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_botonComprar_vue_vue_type_template_id_9f0bd28e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/botonComprarZapato.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/components/botonComprarZapato.vue ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _botonComprarZapato_vue_vue_type_template_id_96ca0728___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./botonComprarZapato.vue?vue&type=template&id=96ca0728& */ "./resources/js/components/botonComprarZapato.vue?vue&type=template&id=96ca0728&");
+/* harmony import */ var _botonComprarZapato_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./botonComprarZapato.vue?vue&type=script&lang=js& */ "./resources/js/components/botonComprarZapato.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _botonComprarZapato_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _botonComprarZapato_vue_vue_type_template_id_96ca0728___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _botonComprarZapato_vue_vue_type_template_id_96ca0728___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/botonComprarZapato.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/botonComprarZapato.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/components/botonComprarZapato.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_botonComprarZapato_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./botonComprarZapato.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/botonComprarZapato.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_botonComprarZapato_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/botonComprarZapato.vue?vue&type=template&id=96ca0728&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/components/botonComprarZapato.vue?vue&type=template&id=96ca0728& ***!
+  \***************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_botonComprarZapato_vue_vue_type_template_id_96ca0728___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./botonComprarZapato.vue?vue&type=template&id=96ca0728& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/botonComprarZapato.vue?vue&type=template&id=96ca0728&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_botonComprarZapato_vue_vue_type_template_id_96ca0728___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_botonComprarZapato_vue_vue_type_template_id_96ca0728___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

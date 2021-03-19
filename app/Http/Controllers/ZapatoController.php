@@ -132,6 +132,7 @@ class ZapatoController extends Controller
      */
     public function update(Request $request, Zapato $zapato)
     {
+        $this->authorize('delete', $zapato);
         $data = $request->validate([
             'name' => 'required|min:7',
             'size' => 'required|min:5',
@@ -159,7 +160,7 @@ class ZapatoController extends Controller
     public function destroy(Zapato $zapato)
     {
         //funcion para validar usuario usando policy
-        //$this->authorize('delete', $zapato);
+        $this->authorize('delete', $zapato);
          //metodo para eliminar
          $zapato->delete();
          return redirect()->action('ZapatoController@index');

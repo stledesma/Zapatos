@@ -42,5 +42,21 @@ class User extends Authenticatable
         return $this->hasMany(Zapato::class);
     }
 
+    //Evento cuando se crea un usuario->preg_filter
+    protected static function booted()
+    {
+        parent::booted();
+
+        static::created(function($user){
+            $user->userPerfil()->create();
+        });
+    }
+
+
+    //Relacion 1 a 1 usuario->perfil
+    public function userPerfil(){
+        return $this->hasOne(Profile::class);
+    }
+
 
 }
